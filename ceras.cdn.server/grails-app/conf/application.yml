@@ -5,7 +5,7 @@ server:
 grails:
     profile: web
     codegen:
-        defaultPackage: ceras.cdn
+        defaultPackage: ceras.cdn.server
     gorm:
         reactor:
             # Whether to translate GORM events into Reactor events
