@@ -1,6 +1,8 @@
 server:
     port:
         80
+    host:
+        0.0.0.0
 ---
 grails:
     profile: web
@@ -142,8 +144,8 @@ environments:
 cdn:
     config:
         path: /app/config/
-#        path: /Volumes/Personal/DevDesk/CDN/data/010/config/
+#        path: /Volumes/Personal/DevDesk/CDN/data/100/config/
     repository:
         path: /app/files/
-#        path: /Volumes/Personal/DevDesk/CDN/data/010/files/
+#        path: /Volumes/Personal/DevDesk/CDN/data/100/files/
 
