@@ -17,7 +17,7 @@ docker run -d \
   -e name=node_100 \
   -e s3_bucket=ceras-cdn \
   -e s3_root=000/ \
-  -e parent_url=http://172.17.0.2/ \
+  -e parent_url=http://cdn-lb-1305784576.us-east-1.elb.amazonaws.com:8000/ \
   -v /opt/cdn/:/app/config/ \
   ceras/ceras.cdn.node:0.1
 
@@ -27,7 +27,7 @@ docker run -d \
   -e name=node_200 \
   -e s3_bucket=ceras-cdn \
   -e s3_root=200/ \
-  -e parent_url=http://172.17.0.2/ \
+  -e parent_url=http://cdn-lb-1305784576.us-east-1.elb.amazonaws.com:8000/ \
   -v /opt/cdn/:/app/config/ \
   ceras/ceras.cdn.node:0.1
 
@@ -37,7 +37,7 @@ docker run -d \
   -e name=node_110 \
   -e s3_bucket=ceras-cdn \
   -e s3_root=110/ \
-  -e parent_url=http://172.17.0.3/ \
+  -e parent_url=http://cdn-lb-1305784576.us-east-1.elb.amazonaws.com:8100/ \
   -v /opt/cdn/:/app/config/ \
   ceras/ceras.cdn.node:0.1
 
@@ -47,7 +47,7 @@ docker run -d \
   -e name=node_120 \
   -e s3_bucket=ceras-cdn \
   -e s3_root=120/ \
-  -e parent_url=http://172.17.0.3/ \
+  -e parent_url=http://cdn-lb-1305784576.us-east-1.elb.amazonaws.com:8100/ \
   -v /opt/cdn/:/app/config/ \
   ceras/ceras.cdn.node:0.1
 
@@ -57,7 +57,7 @@ docker run -d \
   -e name=node_210 \
   -e s3_bucket=ceras-cdn \
   -e s3_root=210/ \
-  -e parent_url=http://172.17.0.4/ \
+  -e parent_url=http://cdn-lb-1305784576.us-east-1.elb.amazonaws.com:8200/ \
   -v /opt/cdn/:/app/config/ \
   ceras/ceras.cdn.node:0.1
 
@@ -67,6 +67,6 @@ docker run -d \
   -e name=node_220 \
   -e s3_bucket=ceras-cdn \
   -e s3_root=220/ \
-  -e parent_url=http://172.17.0.4/ \
+  -e parent_url=http://cdn-lb-1305784576.us-east-1.elb.amazonaws.com:8000/ \
   -v /opt/cdn/:/app/config/ \
   ceras/ceras.cdn.node:0.1
