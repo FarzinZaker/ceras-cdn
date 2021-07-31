@@ -1,5 +1,7 @@
 package ceras.cdn.node
 
+import com.amazonaws.services.s3.model.AmazonS3Exception
+
 class FileController {
 
     def fileService
@@ -21,7 +23,11 @@ class FileController {
         }
 
         def name = path.split('/')?.last()
-        def bytes = s3Service.getFileBytes(path)
+        def bytes = null
+        try {
+            bytes = s3Service.getFileBytes(path)
+        } catch (AmazonS3Exception ignore) {
+        }
         String mimeType
 
         if (bytes) {
