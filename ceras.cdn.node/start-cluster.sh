@@ -8,6 +8,7 @@ docker run -d \
   -e name=node_000 \
   -e s3_bucket=ceras-cdn \
   -e s3_root=000/ \
+  -v /opt/cdn/:/app/config/ \
   ceras/ceras.cdn.node:0.1
 
 docker run -d \
@@ -17,6 +18,7 @@ docker run -d \
   -e s3_bucket=ceras-cdn \
   -e s3_root=000/ \
   -e parent_url=http://172.17.0.2/ \
+  -v /opt/cdn/:/app/config/ \
   ceras/ceras.cdn.node:0.1
 
 docker run -d \
@@ -26,6 +28,7 @@ docker run -d \
   -e s3_bucket=ceras-cdn \
   -e s3_root=200/ \
   -e parent_url=http://172.17.0.2/ \
+  -v /opt/cdn/:/app/config/ \
   ceras/ceras.cdn.node:0.1
 
 docker run -d \
@@ -35,6 +38,7 @@ docker run -d \
   -e s3_bucket=ceras-cdn \
   -e s3_root=110/ \
   -e parent_url=http://172.17.0.3/ \
+  -v /opt/cdn/:/app/config/ \
   ceras/ceras.cdn.node:0.1
 
 docker run -d \
@@ -44,6 +48,7 @@ docker run -d \
   -e s3_bucket=ceras-cdn \
   -e s3_root=120/ \
   -e parent_url=http://172.17.0.3/ \
+  -v /opt/cdn/:/app/config/ \
   ceras/ceras.cdn.node:0.1
 
 docker run -d \
@@ -53,6 +58,7 @@ docker run -d \
   -e s3_bucket=ceras-cdn \
   -e s3_root=210/ \
   -e parent_url=http://172.17.0.4/ \
+  -v /opt/cdn/:/app/config/ \
   ceras/ceras.cdn.node:0.1
 
 docker run -d \
@@ -62,4 +68,5 @@ docker run -d \
   -e s3_bucket=ceras-cdn \
   -e s3_root=220/ \
   -e parent_url=http://172.17.0.4/ \
+  -v /opt/cdn/:/app/config/ \
   ceras/ceras.cdn.node:0.1
