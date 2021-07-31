@@ -12,10 +12,10 @@ class ConfigService {
 
     Properties getConfig(){
         if(!_config) {
-            Properties properties = new Properties()
+            Properties _config = new Properties()
             File propertiesFile = new File('/app/config/config.properties')
             propertiesFile.withInputStream {
-                properties.load(it)
+                _config.load(it)
             }
         }
         _config
