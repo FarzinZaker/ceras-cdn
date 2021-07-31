@@ -8,17 +8,17 @@ class ConfigService {
 
     def grailsApplication
 
-    private Properties config
+    private Properties _config
 
     Properties getConfig(){
-        if(!config) {
+        if(!_config) {
             Properties properties = new Properties()
             File propertiesFile = new File('/app/config/config.properties')
             propertiesFile.withInputStream {
                 properties.load(it)
             }
         }
-        config
+        _config
     }
 
     String getName() {
