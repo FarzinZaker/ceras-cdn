@@ -146,7 +146,7 @@ task createDockerfile(type: Dockerfile, dependsOn: prepareDocker) {
 
     destFile = project.file("${dockerBuildDir}/Dockerfile")
 
-    from 'openjdk:8u151-jdk-alpine'
+    from 'openjdk:11'
 //    platform 'linux/amd64'
 //    from 'azul/zulu-openjdk-alpine:8'
 //    maintainer 'Farzin Zaker'
