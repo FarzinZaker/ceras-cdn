@@ -77,6 +77,16 @@ dependencies {
     testCompile "org.seleniumhq.selenium:selenium-support:3.14.0"
     testRuntime "org.seleniumhq.selenium:selenium-chrome-driver:3.14.0"
     testRuntime "org.seleniumhq.selenium:selenium-firefox-driver:3.14.0"
+
+    // https://mvnrepository.com/artifact/org.influxdb/influxdb-java
+    compile 'com.influxdb:influxdb-client-java:2.0.0'
+    compile 'org.jetbrains.kotlin:kotlin-stdlib:1.3.70'
+
+//    compile 'software.amazon.awssdk:aws-sdk-java:2.17.9'
+
+    // https://mvnrepository.com/artifact/com.amazonaws/aws-java-sdk-s3
+    compile 'com.amazonaws:aws-java-sdk-s3:1.12.36'
+
 }
 
 bootRun {
@@ -136,7 +146,7 @@ task createDockerfile(type: Dockerfile, dependsOn: prepareDocker) {
 
     destFile = project.file("${dockerBuildDir}/Dockerfile")
 
-    from 'openjdk:8u151-jdk-alpine'
+    from 'openjdk:8'
 //    from 'azul/zulu-openjdk-alpine:8'
 //    maintainer 'Farzin Zaker'
 
@@ -151,7 +161,7 @@ task createDockerfile(type: Dockerfile, dependsOn: prepareDocker) {
     entryPoint '/app/app-entrypoint.sh'
 }
 task buildImage(type: DockerBuildImage, dependsOn: createDockerfile) {
-    description = 'Create Docker image to run the Grails application'
+    description = 'Create Docker image to run the CDN application'
     group = 'Docker'
 
     inputDir = file(dockerBuildDir)

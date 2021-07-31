@@ -1,5 +1,6 @@
 package ceras.cdn.node
 
+import com.amazonaws.regions.Regions
 import grails.gorm.transactions.Transactional
 
 @Transactional
@@ -7,19 +8,72 @@ class ConfigService {
 
     def grailsApplication
 
-    String getRepositoryPath() {
-        grailsApplication.config.cdn.repository.path
+    private Properties config
+
+    Properties getConfig(){
+        if(!config) {
+            Properties properties = new Properties()
+            File propertiesFile = new File('/app/config/config.properties')
+            propertiesFile.withInputStream {
+                properties.load(it)
+            }
+        }
+        config
     }
 
-    String getConfigPath() {
-        grailsApplication.config.cdn.config.path
+    String getName() {
+        System.getenv('name') ?: grailsApplication.config.cdn.name
+    }
+
+    String getS3Bucket() {
+        System.getenv('s3_bucket') ?: grailsApplication.config.cdn.s3_bucket
+    }
+
+    String getS3Root() {
+        System.getenv('s3_root') ?: grailsApplication.config.cdn.s3_root
     }
 
     String getParentURL() {
-        new File(configPath + 'parent').text?.trim()
+        System.getenv('parent_url') ?: grailsApplication.config.cdn.parent_url
     }
 
     Boolean getHasParent() {
-        new File(configPath + 'parent').exists()
+        getParentURL()
+    }
+
+    String getRepositoryPath() {
+        "${s3Root}files/"
+    }
+
+    String getAWSAccessKey() {
+        config."aws_access_key"
+    }
+
+    String getAWSSecretKey() {
+        config."aws_access_key"
+    }
+
+    Regions getAWSRegion() {
+        Regions.fromName(config."aws_region"?.toString())
+    }
+
+    String getInfluxDBHost() {
+        config."influx_host"
+    }
+
+    Integer getInfluxDBPort() {
+        config."influx_port"?.toString()?.toInteger()
+    }
+
+    String getInfluxDBOrg() {
+        config."influx_org"
+    }
+
+    String getInfluxDBBucket() {
+        config."influx_bucket"
+    }
+
+    String getInfluxDBToken() {
+        config."influx_token"
     }
 }
