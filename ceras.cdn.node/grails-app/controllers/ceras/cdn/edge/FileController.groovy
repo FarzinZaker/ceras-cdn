@@ -27,6 +27,8 @@ class FileController {
         try {
             bytes = s3Service.getFileBytes(path)
         } catch (AmazonS3Exception ignore) {
+            println ignore.message
+            ignore.printStackTrace()
         }
         String mimeType
 
