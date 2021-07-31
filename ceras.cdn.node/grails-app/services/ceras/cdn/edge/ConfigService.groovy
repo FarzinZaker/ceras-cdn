@@ -13,8 +13,8 @@ class ConfigService {
     Properties getConfig(){
         if(!_config) {
             _config = new Properties()
-//            File propertiesFile = new File('/app/config/config.properties')
-            File propertiesFile = new File('/opt/cdn/config.properties')
+            File propertiesFile = new File('/app/config/config.properties')
+//            File propertiesFile = new File('/opt/cdn/config.properties')
             propertiesFile.withInputStream {
                 _config.load(it)
             }
